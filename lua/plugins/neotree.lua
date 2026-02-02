@@ -9,7 +9,8 @@ return {
     },
     lazy = false, -- neo-tree will lazily load itself
     keys = { 
-	{ "<C-b>", "<cmd>Neotree toggle<cr>", desc = "Neotree open project drawer" } 
+        { "<leader>b", "<cmd>Neotree toggle<cr>", desc = "Neotree open project drawer" },
+        { "<C-b>", false },
     },
     opts = {
 	filesystem = {
@@ -21,7 +22,7 @@ return {
 	},
 	window = {
 		mappings = {
-			["<C-b>"] = "close_window"
+			["<leader>b"] = "close_window"
 		}
 	}
     }
