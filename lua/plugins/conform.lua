@@ -7,7 +7,6 @@ return {
             rust = { "rustfmt", lsp_format = "fallback" },
             terraform = { "terraform_fmt" },
             ["terraform-vars"] = { "terraform_fmt"},
-            lua = { "stylua" },
             javascript = { "prettier" },
             typescript = { "prettier" },
             javascriptreact = { "prettier" },

@@ -6,8 +6,8 @@ vim.g.lazyvim_check_order = false
 
 -- Autosave on focus lost
 vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
-	pattern = "*",
-	command = "silent! wa",
+    pattern = "*",
+    command = "silent! wa",
 })
 
 -- Editor options
@@ -26,3 +26,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end,
 })
+
+vim.opt.termguicolors = true
+require('bufferline').setup {}
