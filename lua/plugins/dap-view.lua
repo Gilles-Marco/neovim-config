@@ -1,0 +1,11 @@
+-- return {
+--     "igorlfs/nvim-dap-view",
+--     -- @module 'dap-view'
+--     -- @type dapview.Config
+--     opts = {},
+--     keys = {
+--         { "<leader>do", "<cmd>DapViewOpen<cr>",  "Open debugging session" },
+--         { "<leader>dc", "<cmd>DapViewClose<cr>", "Close debugging session" }
+--     }
+-- }
+return {}

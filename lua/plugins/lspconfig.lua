@@ -1,28 +1,32 @@
 return {
-	"neovim/nvim-lspconfig",
-	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    dependencies = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         "hrsh7th/cmp-nvim-lsp",
-	},
-	config = function()
-		require("mason").setup()
+    },
+    config = function()
+        require("mason").setup({
+            ensure_installed = {
+                "tflint"
+            }
+        })
 
-		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"basedpyright",
-				"lua_ls",
-				"terraformls",
-				"gopls",
-				"jdtls",
-				"clangd",
-				"rust_analyzer",
-				"ruby_lsp",
-				"ts_ls",
-				"bashls",
-			},
-		})
+        require("mason-lspconfig").setup({
+            ensure_installed = {
+                "basedpyright",
+                "lua_ls",
+                "terraformls",
+                "gopls",
+                "jdtls",
+                "clangd",
+                "rust_analyzer",
+                "ruby_lsp",
+                "ts_ls",
+                "bashls",
+            },
+        })
 
         require('mason-tool-installer').setup({
             "black",
@@ -38,7 +42,7 @@ return {
         })
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
+        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
         local servers = {
             basedpyright = {
@@ -63,6 +67,9 @@ return {
             lua_ls = {},
             terraformls = {
                 capabilities = capabilities,
+                init_options = {
+                    ignoreSingleFileWarning = true
+                },
             },
             gopls = {},
             jdtls = {},
@@ -92,5 +99,5 @@ return {
             vim.lsp.config[name] = config
             vim.lsp.enable(name)
         end
-	end,
+    end,
 }

@@ -3,10 +3,12 @@ return {
     opts = {
         formatter_by_ft = {
             lua = { "stylelua" },
-            python = {"black", "isort"},
+            python = { "black", "isort" },
             rust = { "rustfmt", lsp_format = "fallback" },
             terraform = { "terraform_fmt" },
-            ["terraform-vars"] = { "terraform_fmt"},
+            ["terraform-vars"] = { "terraform_fmt" },
+            tf = { "terraform_fmt" },
+            hcl = { "packer_fmt" },
             javascript = { "prettier" },
             typescript = { "prettier" },
             javascriptreact = { "prettier" },
@@ -25,6 +27,9 @@ return {
             xml = { "xmlformatter" },
             ["*"] = { "codespell" },
             ["_"] = { "trim_whitespace" },
+        },
+        format = {
+            timeout_ms = 500
         },
         format_on_save = {
             timeout_ms = 500,
