@@ -30,3 +30,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.opt.termguicolors = true
 require('bufferline').setup {}
+
+vim.keymap.set("n", "<leader>s", [[/\v'|"/<CR>]], { desc = "Jump to next quote" })
+vim.keymap.set("n", "0", "^", { desc = "Go to the first non blank character" })
