@@ -3,7 +3,7 @@ return {
     opts = {
         formatter_by_ft = {
             lua = { "stylelua" },
-            python = { "black", "isort" },
+            python = { "ruff_format", "ruff_organize_imports" },
             rust = { "rustfmt", lsp_format = "fallback" },
             terraform = { "terraform_fmt" },
             ["terraform-vars"] = { "terraform_fmt" },
