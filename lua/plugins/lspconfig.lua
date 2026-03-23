@@ -9,13 +9,15 @@ return {
     config = function()
         require("mason").setup({
             ensure_installed = {
-                "tflint"
+                "tflint",
+                "ruff"
             }
         })
 
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "basedpyright",
+                "ruff",
                 "lua_ls",
                 "terraformls",
                 "gopls",
@@ -29,8 +31,6 @@ return {
         })
 
         require('mason-tool-installer').setup({
-            "black",
-            "isort",
             "tflint",
             "stylua",
             "prettier",
@@ -50,6 +50,7 @@ return {
                 settings = {
                     basedpyright = {
                         analysis = {
+                            disableOrganizeImports = true,
                             typeCheckingMode = "standard",
                             autoSearchPaths = true,
                             diagnosticMode = "openFilesOnly",
@@ -62,7 +63,17 @@ return {
                             },
                         },
                     },
+                    python = {
+                        analysis = {
+                            typeCheckingMode = "standard"
+                        }
+                    }
                 },
+            },
+            ruff = {
+                on_attach = function(client, bufnr)
+                    client.server_capabilities.hoverProvider = false
+                end
             },
             lua_ls = {},
             terraformls = {
@@ -70,6 +81,7 @@ return {
                 init_options = {
                     ignoreSingleFileWarning = true
                 },
+                rootdir = require('lspconfig.util').root_pattern(".terraform", ".git", "*.tf", "*.tfvars"),
             },
             gopls = {},
             jdtls = {},
