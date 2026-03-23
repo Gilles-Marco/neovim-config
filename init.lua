@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
 
 -- Editor options
 vim.wo.number = true
+vim.opt.scrolloff = 4
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
