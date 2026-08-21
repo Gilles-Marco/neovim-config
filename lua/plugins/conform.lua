@@ -1,7 +1,7 @@
 return {
     'stevearc/conform.nvim',
     opts = {
-        formatter_by_ft = {
+        formatters_by_ft = {
             lua = { "stylelua" },
             python = { "ruff_format", "ruff_organize_imports" },
             rust = { "rustfmt", lsp_format = "fallback" },

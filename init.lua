@@ -34,3 +34,10 @@ require('bufferline').setup {}
 
 vim.keymap.set("n", "<leader>s", [[/\v'|"/<CR>]], { desc = "Jump to next quote" })
 vim.keymap.set("n", "0", "^", { desc = "Go to the first non blank character" })
+
+vim.filetype.add({
+    extension = {
+        tf = 'terraform',
+        tfvars = 'terraform-vars'
+    }
+})
